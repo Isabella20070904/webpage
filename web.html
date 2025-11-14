@@ -1,0 +1,200 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>我的个人主页</title>
+	<style>
+		* {margin:0;padding:0;}
+		
+		/* 【需要修改】背景设置 - 替换成你的图片URL */
+		body {
+			background: url('photo/background.jpg') no-repeat center center fixed;
+			background-size: cover;
+			color: #FFFFFF;
+		}
+		
+		/* 欢迎框样式 */
+		.welcome-box {
+			width: 80%;
+			max-width: 800px;  /* 加宽一些适应9个块 */
+			background: rgba(255, 255, 255, 0.2);
+			border-radius: 15px;
+			box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+			backdrop-filter: blur(10px);
+			border: 1px solid rgba(255, 255, 255, 0.3);
+			position: fixed;
+			left: 0;
+			top: 5%;  /* 上移一些给9个块留空间 */
+			right: 0;
+			margin: 0 auto;
+			padding: 20px;
+			box-sizing: border-box;
+			text-align: center;
+			font-family: 'Microsoft YaHei', sans-serif;
+		}
+		
+		.welcome-box h1 {
+			font-size: 2.5em;
+			margin-bottom: 10px;
+			text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+		}
+		
+		.welcome-box p {
+			font-size: 1.2em;
+			opacity: 0.9;
+		}
+		
+		/* 主要内容区域 - 调整高度适应9个块 */
+		.tp-content {
+			width: 80%;
+			max-width: 800px;  /* 加宽 */
+			background: rgba(0, 0, 0, 0.3);
+			border-radius: 15px;
+			box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+			backdrop-filter: blur(10px);
+			border: 1px solid rgba(255, 255, 255, 0.2);
+			position: fixed;
+			left: 0;
+			top: 20%;  /* 调整位置 */
+			right: 0;
+			margin: 0 auto;
+			padding: 25px;
+			box-sizing: border-box;
+			display: flex;
+			justify-content: center;
+			flex-wrap: wrap;
+			height: 65%;  /* 设置固定高度 */
+			overflow-y: auto;  /* 如果内容太多可以滚动 */
+		}
+		
+		/* 导航按钮样式 - 调整为3x3布局 */
+		.tp-content a {
+			display: block;
+			width: 30%;  /* 3列布局，每列30%宽度 */
+			background: rgba(255, 255, 255, 0.1);
+			color: #fff;
+			font-size: 14px;  /* 字体稍小 */
+			line-height: 25px;
+			text-align: center;
+			text-decoration: none;
+			margin: 10px 1.5%;  /* 减少边距 */
+			border: 1px solid rgba(255, 255, 255, 0.3);
+			border-radius: 10px;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			padding: 8px;
+			transition: all 0.3s ease;
+		}
+		
+		.tp-content a:hover {
+			background: rgba(255, 255, 255, 0.2);
+			border-color: rgba(255, 255, 255, 0.6);
+			transform: translateY(-3px);
+		}
+		
+		/* 【需要修改】图片样式 - 调整更小以适应9个块 */
+		.tp-content a img {
+			width: 60px;    /* 调小图片 */
+			height: 60px;   /* 调小图片 */
+			border-radius: 6px;
+			margin-bottom: 6px;
+		}
+		
+		/* 响应式设计 */
+		@media screen and (max-width: 1200px) {
+			.tp-content a { 
+				width: 30%;  /* 保持3列 */
+				margin: 10px 1.5%; 
+			}
+		}
+		
+		@media screen and (max-width: 768px) {
+			.tp-content a { 
+				width: 45%;  /* 平板端2列 */
+				margin: 10px 2.5%; 
+			}
+			.welcome-box h1 { font-size: 2em; }
+			.welcome-box p { font-size: 1em; }
+		}
+		
+		@media screen and (max-width: 480px) {
+			.tp-content a { 
+				width: 80%;  /* 手机端1列 */
+				margin: 8px 10%; 
+			}
+			.tp-content a img {
+				width: 50px;
+				height: 50px;
+			}
+		}
+		
+		/* 版权信息 */
+		.copyright {
+			width: 100%;
+			position: fixed;
+			bottom: 0;
+			text-align: center;
+			font-size: 14px;
+			color: rgba(255, 255, 255, 0.7);
+			line-height: 20px;
+			padding: 10px 0;
+			background: rgba(0, 0, 0, 0.3);
+			backdrop-filter: blur(5px);
+		}
+	</style>
+</head>
+
+<body>
+	<!-- 欢迎框 -->
+	<div class="welcome-box">
+		<h1>欢迎来到小雅小食堂</h1>
+	</div>
+	
+	<!-- 导航内容区域 - 现在有9个块 -->
+	<div class="tp-content">
+		<!-- 【需要修改】替换成你的9个图片和链接 -->
+		<a href="page1.html">
+			<img src="photo/bai.png" alt="项目1">
+			<span>百景园</span>
+		</a>
+		<a href="page2.html">
+			<img src="photo/dong.png" alt="项目2">
+			<span>东一</span>
+		</a>
+		<a href="page3.html">
+			<img src="photo/dongbian.png" alt="项目3">
+			<span>学一学二</span>
+		</a>
+		<a href="page4.html">
+			<img src="photo/dongsan.png" alt="项目4">
+			<span>东三</span>
+		</a>
+		<a href="page5.html">
+			<img src="photo/jijin.png" alt="项目5">
+			<span>集锦园</span>
+		</a>
+		<a href="page6.html">
+			<img src="photo/xi.png" alt="项目6">
+			<span>西二</span>
+		</a>
+		<a href="page7.html">
+			<img src="photo/xiyi.png" alt="项目7">
+			<span>西一</span>
+		</a>
+		<a href="page8.html">
+			<img src="photo/yunyuan.png" alt="项目8">
+			<span>韵苑</span>
+		</a>
+		<a href="page9.html">
+			<img src="photo/yuyuan.png" alt="项目9">
+			<span>喻园</span>
+		</a>
+	</div>
+
+	<!-- 【需要修改】版权信息 -->
+	<p class="copyright">© 2024 我的个人主页 - 所有权利保留</p>
+</body>
+</html>
