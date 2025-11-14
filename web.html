@@ -3,21 +3,22 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>我的个人主页</title>
+	<title>小雅小食堂</title>
 	<style>
 		* {margin:0;padding:0;}
 		
-		/* 【需要修改】背景设置 - 替换成你的图片URL */
+		/* 背景设置 */
 		body {
 			background: url('photo/background.jpg') no-repeat center center fixed;
 			background-size: cover;
 			color: #FFFFFF;
+			min-height: 100vh;
 		}
 		
 		/* 欢迎框样式 */
 		.welcome-box {
 			width: 80%;
-			max-width: 800px;  /* 加宽一些适应9个块 */
+			max-width: 900px;  /* 进一步加宽 */
 			background: rgba(255, 255, 255, 0.2);
 			border-radius: 15px;
 			box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
@@ -25,30 +26,26 @@
 			border: 1px solid rgba(255, 255, 255, 0.3);
 			position: fixed;
 			left: 0;
-			top: 5%;  /* 上移一些给9个块留空间 */
+			top: 3%;  /* 上移更多 */
 			right: 0;
 			margin: 0 auto;
-			padding: 20px;
+			padding: 15px;
 			box-sizing: border-box;
 			text-align: center;
 			font-family: 'Microsoft YaHei', sans-serif;
+			z-index: 10;
 		}
 		
 		.welcome-box h1 {
-			font-size: 2.5em;
-			margin-bottom: 10px;
+			font-size: 2.2em;
+			margin: 5px 0;
 			text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 		}
 		
-		.welcome-box p {
-			font-size: 1.2em;
-			opacity: 0.9;
-		}
-		
-		/* 主要内容区域 - 调整高度适应9个块 */
+		/* 主要内容区域 - 调整高度和位置 */
 		.tp-content {
-			width: 80%;
-			max-width: 800px;  /* 加宽 */
+			width: 85%;
+			max-width: 900px;
 			background: rgba(0, 0, 0, 0.3);
 			border-radius: 15px;
 			box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
@@ -56,37 +53,37 @@
 			border: 1px solid rgba(255, 255, 255, 0.2);
 			position: fixed;
 			left: 0;
-			top: 20%;  /* 调整位置 */
+			top: 12%;  /* 调整位置 */
 			right: 0;
 			margin: 0 auto;
-			padding: 25px;
+			padding: 20px;
 			box-sizing: border-box;
-			display: flex;
-			justify-content: center;
-			flex-wrap: wrap;
-			height: 65%;  /* 设置固定高度 */
-			overflow-y: auto;  /* 如果内容太多可以滚动 */
+			display: grid;
+			grid-template-columns: repeat(3, 1fr);  /* 3列网格 */
+			grid-template-rows: repeat(3, 1fr);     /* 3行网格 */
+			gap: 15px;  /* 网格间距 */
+			height: 80%;  /* 增加高度 */
+			overflow: hidden;  /* 隐藏滚动条 */
 		}
 		
-		/* 导航按钮样式 - 调整为3x3布局 */
+		/* 导航按钮样式 - 使用网格布局 */
 		.tp-content a {
-			display: block;
-			width: 30%;  /* 3列布局，每列30%宽度 */
-			background: rgba(255, 255, 255, 0.1);
-			color: #fff;
-			font-size: 14px;  /* 字体稍小 */
-			line-height: 25px;
-			text-align: center;
-			text-decoration: none;
-			margin: 10px 1.5%;  /* 减少边距 */
-			border: 1px solid rgba(255, 255, 255, 0.3);
-			border-radius: 10px;
 			display: flex;
 			flex-direction: column;
 			align-items: center;
 			justify-content: center;
-			padding: 8px;
+			background: rgba(255, 255, 255, 0.1);
+			color: #fff;
+			font-size: 16px;
+			text-align: center;
+			text-decoration: none;
+			border: 1px solid rgba(255, 255, 255, 0.3);
+			border-radius: 12px;
+			padding: 10px;
 			transition: all 0.3s ease;
+			width: 100%;
+			height: 100%;
+			box-sizing: border-box;
 		}
 		
 		.tp-content a:hover {
@@ -95,40 +92,74 @@
 			transform: translateY(-3px);
 		}
 		
-		/* 【需要修改】图片样式 - 调整更小以适应9个块 */
+		/* 图片样式 - 增大图片并填满容器 */
 		.tp-content a img {
-			width: 60px;    /* 调小图片 */
-			height: 60px;   /* 调小图片 */
-			border-radius: 6px;
-			margin-bottom: 6px;
+			width: 80px;    /* 增大图片 */
+			height: 80px;   /* 增大图片 */
+			border-radius: 8px;
+			margin-bottom: 8px;
+			object-fit: cover;  /* 保持图片比例并填满 */
+		}
+		
+		/* 文字样式 */
+		.tp-content a span {
+			font-weight: bold;
+			text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 		}
 		
 		/* 响应式设计 */
-		@media screen and (max-width: 1200px) {
-			.tp-content a { 
-				width: 30%;  /* 保持3列 */
-				margin: 10px 1.5%; 
+		@media screen and (max-width: 1024px) {
+			.tp-content {
+				grid-template-columns: repeat(3, 1fr);  /* 保持3列 */
+				gap: 12px;
+				padding: 15px;
+			}
+			
+			.tp-content a img {
+				width: 70px;
+				height: 70px;
 			}
 		}
 		
 		@media screen and (max-width: 768px) {
-			.tp-content a { 
-				width: 45%;  /* 平板端2列 */
-				margin: 10px 2.5%; 
+			.tp-content {
+				grid-template-columns: repeat(2, 1fr);  /* 平板端2列 */
+				grid-template-rows: repeat(5, 1fr);     /* 5行 */
+				gap: 10px;
+				height: 85%;
 			}
-			.welcome-box h1 { font-size: 2em; }
-			.welcome-box p { font-size: 1em; }
+			
+			.welcome-box h1 { font-size: 1.8em; }
+			
+			.tp-content a img {
+				width: 65px;
+				height: 65px;
+			}
 		}
 		
 		@media screen and (max-width: 480px) {
-			.tp-content a { 
-				width: 80%;  /* 手机端1列 */
-				margin: 8px 10%; 
+			.tp-content {
+				grid-template-columns: 1fr;  /* 手机端1列 */
+				grid-template-rows: repeat(9, 1fr);  /* 9行 */
+				gap: 8px;
+				height: 75%;
+				overflow-y: auto;  /* 手机端允许滚动 */
 			}
+			
+			.tp-content a {
+				flex-direction: row;  /* 手机端横向排列 */
+				justify-content: flex-start;
+				padding: 12px;
+			}
+			
 			.tp-content a img {
 				width: 50px;
 				height: 50px;
+				margin-right: 15px;
+				margin-bottom: 0;
 			}
+			
+			.welcome-box h1 { font-size: 1.6em; }
 		}
 		
 		/* 版权信息 */
@@ -143,6 +174,7 @@
 			padding: 10px 0;
 			background: rgba(0, 0, 0, 0.3);
 			backdrop-filter: blur(5px);
+			z-index: 10;
 		}
 	</style>
 </head>
@@ -153,48 +185,47 @@
 		<h1>欢迎来到小雅小食堂</h1>
 	</div>
 	
-	<!-- 导航内容区域 - 现在有9个块 -->
+	<!-- 导航内容区域 - 3×3网格布局 -->
 	<div class="tp-content">
-		<!-- 【需要修改】替换成你的9个图片和链接 -->
 		<a href="page1.html">
-			<img src="photo/bai.png" alt="项目1">
+			<img src="photo/bai.png" alt="百景园">
 			<span>百景园</span>
 		</a>
 		<a href="page2.html">
-			<img src="photo/dong.png" alt="项目2">
+			<img src="photo/dong.png" alt="东一">
 			<span>东一</span>
 		</a>
 		<a href="page3.html">
-			<img src="photo/dongbian.png" alt="项目3">
+			<img src="photo/dongbian.png" alt="学一学二">
 			<span>学一学二</span>
 		</a>
 		<a href="page4.html">
-			<img src="photo/dongsan.png" alt="项目4">
+			<img src="photo/dongsan.png" alt="东三">
 			<span>东三</span>
 		</a>
 		<a href="page5.html">
-			<img src="photo/jijin.png" alt="项目5">
+			<img src="photo/jijin.png" alt="集锦园">
 			<span>集锦园</span>
 		</a>
 		<a href="page6.html">
-			<img src="photo/xi.png" alt="项目6">
+			<img src="photo/xi.png" alt="西二">
 			<span>西二</span>
 		</a>
 		<a href="page7.html">
-			<img src="photo/xiyi.png" alt="项目7">
+			<img src="photo/xiyi.png" alt="西一">
 			<span>西一</span>
 		</a>
 		<a href="page8.html">
-			<img src="photo/yunyuan.png" alt="项目8">
+			<img src="photo/yunyuan.png" alt="韵苑">
 			<span>韵苑</span>
 		</a>
 		<a href="page9.html">
-			<img src="photo/yuyuan.png" alt="项目9">
+			<img src="photo/yuyuan.png" alt="喻园">
 			<span>喻园</span>
 		</a>
 	</div>
 
-	<!-- 【需要修改】版权信息 -->
-	<p class="copyright">© 2024 我的个人主页 - 所有权利保留</p>
+	<!-- 版权信息 -->
+	<p class="copyright">© 2024 小雅小食堂 - 所有权利保留</p>
 </body>
 </html>
