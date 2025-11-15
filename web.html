@@ -15,18 +15,18 @@
 			min-height: 100vh;
 		}
 		
-		/* 欢迎框样式 */
+		/* 欢迎框样式 - 半透明效果，能看到背景 */
 		.welcome-box {
 			width: 80%;
-			max-width: 900px;  /* 进一步加宽 */
-			background: rgba(255, 255, 255, 0.2);
+			max-width: 700px;
+			background: rgba(255, 255, 255, 0.15);  /* 更透明 */
 			border-radius: 15px;
 			box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-			backdrop-filter: blur(10px);
-			border: 1px solid rgba(255, 255, 255, 0.3);
+			backdrop-filter: blur(5px);  /* 轻微模糊 */
+			border: 1px solid rgba(255, 255, 255, 0.2);
 			position: fixed;
 			left: 0;
-			top: 3%;  /* 上移更多 */
+			top: 8%;
 			right: 0;
 			margin: 0 auto;
 			padding: 15px;
@@ -42,44 +42,44 @@
 			text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 		}
 		
-		/* 主要内容区域 - 调整高度和位置 */
+		/* 主要内容区域 - 半透明，能看到背景图 */
 		.tp-content {
-			width: 85%;
-			max-width: 900px;
-			background: rgba(0, 0, 0, 0.3);
+			width: 70%;
+			max-width: 700px;
+			background: rgba(0, 0, 0, 0.2);  /* 更透明 */
 			border-radius: 15px;
 			box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-			backdrop-filter: blur(10px);
+			backdrop-filter: blur(5px);  /* 轻微模糊 */
 			border: 1px solid rgba(255, 255, 255, 0.2);
 			position: fixed;
 			left: 0;
-			top: 12%;  /* 调整位置 */
+			top: 20%;
 			right: 0;
 			margin: 0 auto;
-			padding: 20px;
+			padding: 25px;
 			box-sizing: border-box;
 			display: grid;
-			grid-template-columns: repeat(3, 1fr);  /* 3列网格 */
-			grid-template-rows: repeat(3, 1fr);     /* 3行网格 */
-			gap: 15px;  /* 网格间距 */
-			height: 80%;  /* 增加高度 */
-			overflow: hidden;  /* 隐藏滚动条 */
+			grid-template-columns: repeat(3, 1fr);
+			grid-template-rows: repeat(2, 1fr);
+			gap: 20px;
+			height: 55%;
+			overflow: hidden;
 		}
 		
-		/* 导航按钮样式 - 使用网格布局 */
+		/* 导航按钮样式 - 半透明 */
 		.tp-content a {
 			display: flex;
 			flex-direction: column;
 			align-items: center;
 			justify-content: center;
-			background: rgba(255, 255, 255, 0.1);
+			background: rgba(255, 255, 255, 0.08);  /* 更透明 */
 			color: #fff;
-			font-size: 16px;
+			font-size: 18px;
 			text-align: center;
 			text-decoration: none;
-			border: 1px solid rgba(255, 255, 255, 0.3);
-			border-radius: 12px;
-			padding: 10px;
+			border: 1px solid rgba(255, 255, 255, 0.15);  /* 更透明 */
+			border-radius: 15px;
+			padding: 15px;
 			transition: all 0.3s ease;
 			width: 100%;
 			height: 100%;
@@ -87,82 +87,86 @@
 		}
 		
 		.tp-content a:hover {
-			background: rgba(255, 255, 255, 0.2);
-			border-color: rgba(255, 255, 255, 0.6);
-			transform: translateY(-3px);
+			background: rgba(255, 255, 255, 0.2);  /* 悬停时稍微明显 */
+			border-color: rgba(255, 255, 255, 0.4);
+			transform: translateY(-5px);
+			box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 		}
 		
-		/* 图片样式 - 增大图片并填满容器 */
+		/* 图片样式 */
 		.tp-content a img {
-			width: 80px;    /* 增大图片 */
-			height: 80px;   /* 增大图片 */
-			border-radius: 8px;
-			margin-bottom: 8px;
-			object-fit: cover;  /* 保持图片比例并填满 */
+			width: 100px;
+			height: 100px;
+			border-radius: 12px;
+			margin-bottom: 12px;
+			object-fit: cover;
+			background: rgba(255, 255, 255, 0.1);  /* 图片背景也半透明 */
 		}
 		
 		/* 文字样式 */
 		.tp-content a span {
 			font-weight: bold;
-			text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+			text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+			font-size: 1.1em;
 		}
 		
 		/* 响应式设计 */
 		@media screen and (max-width: 1024px) {
 			.tp-content {
-				grid-template-columns: repeat(3, 1fr);  /* 保持3列 */
-				gap: 12px;
-				padding: 15px;
+				grid-template-columns: repeat(3, 1fr);
+				grid-template-rows: repeat(2, 1fr);
+				gap: 15px;
+				padding: 20px;
 			}
 			
 			.tp-content a img {
-				width: 70px;
-				height: 70px;
+				width: 90px;
+				height: 90px;
 			}
 		}
 		
 		@media screen and (max-width: 768px) {
 			.tp-content {
-				grid-template-columns: repeat(2, 1fr);  /* 平板端2列 */
-				grid-template-rows: repeat(5, 1fr);     /* 5行 */
-				gap: 10px;
-				height: 85%;
+				grid-template-columns: repeat(2, 1fr);
+				grid-template-rows: repeat(3, 1fr);
+				gap: 12px;
+				height: 60%;
 			}
 			
 			.welcome-box h1 { font-size: 1.8em; }
 			
 			.tp-content a img {
-				width: 65px;
-				height: 65px;
+				width: 80px;
+				height: 80px;
 			}
 		}
 		
 		@media screen and (max-width: 480px) {
 			.tp-content {
-				grid-template-columns: 1fr;  /* 手机端1列 */
-				grid-template-rows: repeat(9, 1fr);  /* 9行 */
-				gap: 8px;
-				height: 75%;
-				overflow-y: auto;  /* 手机端允许滚动 */
+				grid-template-columns: 1fr;
+				grid-template-rows: repeat(6, 1fr);
+				gap: 10px;
+				height: 65%;
+				overflow-y: auto;
 			}
 			
 			.tp-content a {
-				flex-direction: row;  /* 手机端横向排列 */
+				flex-direction: row;
 				justify-content: flex-start;
-				padding: 12px;
+				padding: 15px;
 			}
 			
 			.tp-content a img {
-				width: 50px;
-				height: 50px;
-				margin-right: 15px;
+				width: 60px;
+				height: 60px;
+				margin-right: 20px;
 				margin-bottom: 0;
 			}
 			
 			.welcome-box h1 { font-size: 1.6em; }
 		}
 		
-		/* 版权信息 */
+		/* 版权信息 - 半透明 */
 		.copyright {
 			width: 100%;
 			position: fixed;
@@ -172,7 +176,7 @@
 			color: rgba(255, 255, 255, 0.7);
 			line-height: 20px;
 			padding: 10px 0;
-			background: rgba(0, 0, 0, 0.3);
+			background: rgba(0, 0, 0, 0.2);  /* 更透明 */
 			backdrop-filter: blur(5px);
 			z-index: 10;
 		}
@@ -185,47 +189,35 @@
 		<h1>欢迎来到小雅小食堂</h1>
 	</div>
 	
-	<!-- 导航内容区域 - 3×3网格布局 -->
+	<!-- 导航内容区域 - 2×3网格布局 -->
 	<div class="tp-content">
-		<a href="baijingyuan.html">
+		<a href="page1.html">
 			<img src="photo/bai.png" alt="百景园">
 			<span>百景园</span>
 		</a>
-		<a href="dongyi.html">
+		<a href="page2.html">
 			<img src="photo/dong.png" alt="东一">
 			<span>东一</span>
 		</a>
-		<a href="xueyi.html">
-			<img src="photo/dongbian.png" alt="学一学二">
-			<span>学一学二</span>
-		</a>
-		<a href="dongsan.html">
+		<a href="page3.html">
 			<img src="photo/dongsan.png" alt="东三">
-			<span>东三紫荆园</span>
+			<span>东三</span>
 		</a>
-		<a href="jijingyuan.html">
+		<a href="page4.html">
 			<img src="photo/jijin.png" alt="集锦园">
 			<span>集锦园</span>
 		</a>
-		<a href="xier.html">
+		<a href="page5.html">
 			<img src="photo/xi.png" alt="西二">
 			<span>西二</span>
 		</a>
-		<a href="xiyi.html">
+		<a href="page6.html">
 			<img src="photo/xiyi.png" alt="西一">
 			<span>西一</span>
-		</a>
-		<a href="yunyuan.html">
-			<img src="photo/yunyuan.png" alt="韵苑">
-			<span>韵苑</span>
-		</a>
-		<a href="yuyuan.html">
-			<img src="photo/yuyuan.png" alt="喻园">
-			<span>喻园集贸楼</span>
 		</a>
 	</div>
 
 	<!-- 版权信息 -->
-	<p class="copyright">© 2025 小雅小食堂 - 所有权利保留</p>
+	<p class="copyright">© 2024 小雅小食堂 - 所有权利保留</p>
 </body>
 </html>
