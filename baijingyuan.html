@@ -4,6 +4,15 @@
     <meta charset="utf-8">
     <title>百景园</title>
     <style>
+        /* 【在这里设置背景图片】 */
+        body {
+            background: url('photo/baijingyuanback.jpg') no-repeat center center fixed;  /* 修改这里 */
+            background-size: cover;  /* 背景图片覆盖整个页面 */
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
         /* 设置容器样式 */
         .photo-container {
             display: flex;
@@ -12,7 +21,10 @@
             align-items: center;
             gap: 20px;
             padding: 20px;
-            background-color: #99ADA9;
+            background-color: rgba(153, 173, 169, 0.85); /* 添加透明度让背景透出来 */
+            border-radius: 15px;
+            margin: 20px auto;
+            max-width: 1400px;
         }
 
         /* 设置照片样式 */
@@ -22,7 +34,7 @@
             height: 400px;
             overflow: hidden;
             border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
             transition: transform 0.3s ease;
         }
 
@@ -38,44 +50,42 @@
             bottom: 0;
             left: 0;
             width: 95%;
-            padding: 10px;
-            background-color: rgba(0, 0, 0, 0.7);
+            padding: 12px;
+            background-color: rgba(0, 0, 0, 0.8);
             color: #fff;
-            font-size: 14px;
+            font-size: 16px;
             text-align: center;
             opacity: 0;
             transition: opacity 0.3s ease;
+            font-weight: bold;
         }
 
         /* 设置鼠标滑动动画效果 */
         .photo:hover {
-            transform: scale(1.1);
+            transform: scale(1.05);
         }
 
         .photo:hover .caption {
             opacity: 1;
         }
         
-        body {
-            background-color: #A8B4BF;
-            margin: 0;
-            padding: 0;
-        }
-        
         /* 美化标题样式 */
         .page-title {
             text-align: center;
-            font-size: 2.5em;
+            font-size: 3em;
             color: #2c3e50;
-            margin: 20px 0;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+            margin: 30px 0 10px 0;
+            text-shadow: 2px 2px 8px rgba(255,255,255,0.8);
+            font-family: 'Microsoft YaHei', sans-serif;
         }
         
         .page-subtitle {
             text-align: center;
-            font-size: 1.2em;
+            font-size: 1.3em;
             color: #34495e;
             margin-bottom: 30px;
+            text-shadow: 1px 1px 4px rgba(255,255,255,0.6);
+            font-family: 'Microsoft YaHei', sans-serif;
         }
         
         /* 美化回到主页按钮 */
@@ -92,23 +102,26 @@
             font-weight: bold;
             border-radius: 25px;
             border: none;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
             transition: all 0.3s ease;
             cursor: pointer;
+            font-family: 'Microsoft YaHei', sans-serif;
         }
         
         .home-button:hover {
             transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
             background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
         }
         
         /* 美化版权信息 */
         .copyright {
             text-align: center;
-            color: #7f8c8d;
+            color: rgba(255, 255, 255, 0.9);
             margin: 20px 0;
             font-size: 0.9em;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+            font-family: 'Microsoft YaHei', sans-serif;
         }
     </style>
 </head>
@@ -119,16 +132,20 @@
     <div class="photo-container">
         <!-- 去掉了<a>标签，只保留图片和文字说明 -->
         <div class="photo">
-            <img src="photo/百景园菜品1.jpg" width="300" height="400" alt="百景园菜品1">
-            <div class="caption">招牌红烧肉 - 肉质鲜嫩，入口即化</div>
+            <img src="photo/baijingyuan1.JPG" width="300" height="400" alt="百景园菜品1">
+            <div class="caption">二楼好吃的自选菜。每一份分量都很小，都是非常精致。推荐！</div>
         </div>
         <div class="photo">
-            <img src="photo/百景园菜品2.jpg" width="300" height="400" alt="百景园菜品2">
-            <div class="caption">清蒸鲈鱼 - 鲜美可口，营养丰富</div>
+            <img src="photo/baijingyuan2.JPG" width="300" height="400" alt="百景园菜品2">
+            <div class="caption">一楼的水饺和鸡丁。比较普通，无聊的时候可以尝试一下。</div>
         </div>
         <div class="photo">
-            <img src="photo/百景园菜品3.jpg" width="300" height="400" alt="百景园菜品3">
-            <div class="caption">宫保鸡丁 - 香辣适中，下饭佳品</div>
+            <img src="photo/baijingyuan3.jpg" width="300" height="400" alt="百景园菜品3">
+            <div class="caption">烧腊饭和肠粉。中规中矩，和东一差不多。</div>
+        </div>
+         <div class="photo">
+            <img src="photo/baijingyuan4.JPG" width="300" height="400" alt="百景园菜品1">
+            <div class="caption">明星网红冬阴功米线，但我吃着觉得似乎一般？？？可以尝试一下。</div>
         </div>
         <!-- 可以继续添加更多菜品 -->
     </div>
