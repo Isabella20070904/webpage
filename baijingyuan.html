@@ -4,44 +4,86 @@
     <meta charset="utf-8">
     <title>百景园</title>
     <style>
-        /* 【在这里设置背景图片】 */
+        /* 背景设置 */
         body {
-            background: url('photo/baijingyuanback.jpg') no-repeat center center fixed;  /* 修改这里 */
-            background-size: cover;  /* 背景图片覆盖整个页面 */
+            background: url('photo/baijingyuanback.jpg') no-repeat center center fixed;
+            background-size: cover;
             margin: 0;
             padding: 0;
             color: #333;
+            font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif;
         }
 
-        /* 设置容器样式 */
+        /* 【美化标题样式】 */
+        .page-title {
+            text-align: center;
+            font-size: 3.2em;
+            color: #2e7d32;  /* 深绿色，与浅绿背景协调 */
+            margin: 40px 0 10px 0;
+            font-weight: 300;
+            letter-spacing: 3px;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px 40px;
+            border-radius: 50px;
+            display: inline-block;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            border: 2px solid #81c784;
+            backdrop-filter: blur(10px);
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* 【美化副标题】 */
+        .page-subtitle {
+            text-align: center;
+            font-size: 1.4em;
+            color: #455a64;  /* 深灰蓝色 */
+            margin-bottom: 40px;
+            font-weight: 300;
+            letter-spacing: 1px;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 12px 30px;
+            border-radius: 30px;
+            display: inline-block;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            backdrop-filter: blur(5px);
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* 【去掉白色大框，直接放图片】 */
         .photo-container {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
             align-items: center;
-            gap: 20px;
+            gap: 30px;
             padding: 20px;
-            background-color: rgba(153, 173, 169, 0.85); /* 添加透明度让背景透出来 */
-            border-radius: 15px;
             margin: 20px auto;
             max-width: 1400px;
+            /* 去掉背景色，让背景图片直接显示 */
         }
 
         /* 设置照片样式 */
         .photo {
             position: relative;
-            width: 300px;
-            height: 400px;
+            width: 320px;
+            height: 420px;
             overflow: hidden;
-            border-radius: 10px;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
-            transition: transform 0.3s ease;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+            transition: all 0.4s ease;
+            background: rgba(255, 255, 255, 0.1);  /* 轻微白色背景让图片更突出 */
+            backdrop-filter: blur(5px);
         }
 
         .photo img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            transition: transform 0.4s ease;
         }
 
         /* 设置文字说明样式 */
@@ -49,19 +91,25 @@
             position: absolute;
             bottom: 0;
             left: 0;
-            width: 95%;
-            padding: 12px;
-            background-color: rgba(0, 0, 0, 0.8);
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.9));
             color: #fff;
             font-size: 16px;
             text-align: center;
             opacity: 0;
-            transition: opacity 0.3s ease;
-            font-weight: bold;
+            transition: opacity 0.4s ease;
+            font-weight: 400;
+            line-height: 1.5;
         }
 
         /* 设置鼠标滑动动画效果 */
         .photo:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+        }
+
+        .photo:hover img {
             transform: scale(1.05);
         }
 
@@ -69,59 +117,45 @@
             opacity: 1;
         }
         
-        /* 美化标题样式 */
-        .page-title {
-            text-align: center;
-            font-size: 3em;
-            color: #2c3e50;
-            margin: 30px 0 10px 0;
-            text-shadow: 2px 2px 8px rgba(255,255,255,0.8);
-            font-family: 'Microsoft YaHei', sans-serif;
-        }
-        
-        .page-subtitle {
-            text-align: center;
-            font-size: 1.3em;
-            color: #34495e;
-            margin-bottom: 30px;
-            text-shadow: 1px 1px 4px rgba(255,255,255,0.6);
-            font-family: 'Microsoft YaHei', sans-serif;
-        }
-        
         /* 美化回到主页按钮 */
         .home-button {
             display: block;
-            width: 200px;
-            margin: 30px auto;
-            padding: 12px 24px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            width: 220px;
+            margin: 40px auto;
+            padding: 14px 28px;
+            background: linear-gradient(135deg, #81c784, #4caf50);
             color: white;
             text-decoration: none;
             text-align: center;
-            font-size: 1.1em;
-            font-weight: bold;
-            border-radius: 25px;
+            font-size: 1.2em;
+            font-weight: 500;
+            border-radius: 30px;
             border: none;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 6px 20px rgba(76, 175, 80, 0.3);
             transition: all 0.3s ease;
             cursor: pointer;
-            font-family: 'Microsoft YaHei', sans-serif;
+            letter-spacing: 1px;
         }
         
         .home-button:hover {
             transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
-            background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+            box-shadow: 0 8px 25px rgba(76, 175, 80, 0.4);
+            background: linear-gradient(135deg, #4caf50, #388e3c);
         }
         
         /* 美化版权信息 */
         .copyright {
             text-align: center;
-            color: rgba(255, 255, 255, 0.9);
-            margin: 20px 0;
-            font-size: 0.9em;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-            font-family: 'Microsoft YaHei', sans-serif;
+            color: #666;
+            margin: 30px 0;
+            font-size: 1em;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 15px;
+            border-radius: 10px;
+            display: inline-block;
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%);
         }
     </style>
 </head>
@@ -129,8 +163,8 @@
     <h1 class="page-title">百景园美食展示</h1>
     <p class="page-subtitle">鼠标悬停查看菜品介绍</p>
     
+    <!-- 图片直接放在背景上，没有白色大框 -->
     <div class="photo-container">
-        <!-- 去掉了<a>标签，只保留图片和文字说明 -->
         <div class="photo">
             <img src="photo/baijingyuan1.JPG" width="300" height="400" alt="百景园菜品1">
             <div class="caption">二楼好吃的自选菜。每一份分量都很小，都是非常精致。推荐！</div>
@@ -143,17 +177,14 @@
             <img src="photo/baijingyuan3.jpg" width="300" height="400" alt="百景园菜品3">
             <div class="caption">烧腊饭和肠粉。中规中矩，和东一差不多。</div>
         </div>
-         <div class="photo">
-            <img src="photo/baijingyuan4.JPG" width="300" height="400" alt="百景园菜品1">
+        <div class="photo">
+            <img src="photo/baijingyuan4.JPG" width="300" height="400" alt="百景园菜品4">
             <div class="caption">明星网红冬阴功米线，但我吃着觉得似乎一般？？？可以尝试一下。</div>
         </div>
-        <!-- 可以继续添加更多菜品 -->
     </div>
     
-    <!-- 美化后的回到主页按钮 -->
-    <a href="index.html" class="home-button">返回主页</a>
+    <a href="web.html" class="home-button">返回主页</a>
     
-    <!-- 美化后的版权信息 -->
     <div class="copyright">
         <strong>&copy; 2025 小雅小食堂 - 所有权利保留</strong>
     </div>
