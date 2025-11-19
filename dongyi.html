@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>东一美食展示</title>
+    <style>
+        /* 基础样式 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif;
+            background: url('photo/backgrounddongyi.png') no-repeat center center fixed;
+            background-size: cover;
+            color: #333;
+            padding: 20px;
+            min-height: 100vh;
+        }
+        
+        /* 标题样式 - 蓝紫色主题 */
+        .page-title {
+            text-align: center;
+            font-size: 3.5em;
+            margin: 40px 0 15px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 4px 8px rgba(106, 17, 203, 0.2);
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .page-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, #6a11cb, #2575fc, transparent);
+            border-radius: 2px;
+        }
+        
+        /* 副标题样式 */
+        .page-subtitle {
+            text-align: center;
+            font-size: 1.4em;
+            color: #5d4a8a;
+            margin-bottom: 40px;
+            font-weight: 300;
+            letter-spacing: 1px;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 12px 30px;
+            border-radius: 30px;
+            display: inline-block;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            backdrop-filter: blur(5px);
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        /* 图片容器 */
+        .photo-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 1400px;
+        }
+        
+        /* 图片样式 */
+        .photo {
+            position: relative;
+            width: 320px;
+            height: 420px;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+            transition: all 0.4s ease;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(5px);
+        }
+        
+        .photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+        
+        /* 文字说明样式 */
+        .photo .caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(transparent, rgba(74, 20, 140, 0.9));
+            color: #fff;
+            font-size: 16px;
+            text-align: center;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            font-weight: 400;
+            line-height: 1.5;
+        }
+        
+        /* 悬停效果 */
+        .photo:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(106, 17, 203, 0.4);
+        }
+        
+        .photo:hover img {
+            transform: scale(1.05);
+        }
+        
+        .photo:hover .caption {
+            opacity: 1;
+        }
+        
+        /* 按钮样式 */
+        .home-button {
+            display: block;
+            width: 220px;
+            margin: 40px auto;
+            padding: 14px 28px;
+            background: linear-gradient(135deg, #6a11cb, #2575fc);
+            color: white;
+            text-decoration: none;
+            text-align: center;
+            font-size: 1.2em;
+            font-weight: 500;
+            border-radius: 30px;
+            border: none;
+            box-shadow: 0 6px 20px rgba(106, 17, 203, 0.3);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            letter-spacing: 1px;
+        }
+        
+        .home-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(106, 17, 203, 0.4);
+            background: linear-gradient(135deg, #5a0db5, #1c68e8);
+        }
+        
+        /* 版权信息 */
+        .copyright {
+            text-align: center;
+            color: #666;
+            margin: 30px 0;
+            font-size: 1em;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 15px;
+            border-radius: 10px;
+            display: inline-block;
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    </style>
+</head>
+<body>
+    <h1 class="page-title">东一美食展示</h1>
+    <p class="page-subtitle">鼠标悬停查看菜品介绍</p>
+    
+    <div class="photo-container">
+        <div class="photo">
+            <img src="photo/dy1.JPG" alt="东一烧腊饭">
+            <div class="caption">东一排队王——地表最强——烧腊饭。非常好吃。个人感觉烧鸡没有烧鸭那么油。</div>
+        </div>
+        <div class="photo">
+            <img src="photo/dy2.jpg" alt="东一拉面">
+            <div class="caption">东一的拉面 纯手工现拉 对于南方长期吃挂面的小登还是很有吸引力的 可以让师傅拉成宽面哦！</div>
+        </div>
+        <div class="photo">
+            <img src="photo/dy3.jpg" alt="玉米排骨粉和热卤菜">
+            <div class="caption">小雅最爱的玉米排骨粉！真的超级好吃 以及最右边的热卤菜。热卤菜一般，价格偏贵。</div>
+        </div>
+        <div class="photo">
+            <img src="photo/dy4.jpg" alt="小米石锅水煮牛肉">
+            <div class="caption">小米石锅的水煮牛肉 热腾腾的 适合冬天吃</div>
+        </div>
+        <div class="photo">
+            <img src="photo/dy5.jpg" alt="热干面">
+            <div class="caption">最让来自重庆的小雅无法接受的热干面 非常油 完全吃不惯</div>
+        </div>
+        <div class="photo">
+            <img src="photo/dy6.JPG" alt="麻辣香锅">
+            <div class="caption">东一二楼的麻辣香锅 排队的人很多 但似乎又油又咸？？？感觉没有东三的好吃</div>
+        </div>
+    </div>
+    
+    <a href="index.html" class="home-button">返回主页</a>
+    
+    <div class="copyright">
+        <strong>&copy; 2025 小雅小食堂 - 所有权利保留</strong>
+    </div>
+</body>
+</html>

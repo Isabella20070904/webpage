@@ -1,0 +1,176 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>喻园食堂美食</title>
+<style>
+    body {
+        padding: 20px;
+        background: url('photo/yuyuanback.jpg') no-repeat center center fixed;
+        background-size: cover;
+        font-family: Arial, sans-serif;
+        margin: 0;
+        min-height: 100vh;
+    }
+    
+    .container { 
+        max-width: 1000px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .header {
+        text-align: center;
+        padding: 20px 0;
+        width: 100%;
+    }
+    
+    .logo {
+        font-size: 2.5em;
+        color: #c8a2c8; /* 改为淡紫色 */
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        margin: 20px 0;
+    }
+    
+    .gallery {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        gap: 20px;
+        margin: 20px 0;
+        width: 100%;
+    }
+    
+    .thumbnail {
+        background: rgba(255, 255, 255, 0.9);
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 4px 8px rgba(156, 77, 139, 0.2);
+        transition: transform 0.3s;
+    }
+    
+    .thumbnail:hover {
+        transform: translateY(-5px);
+    }
+    
+    .thumbnail img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+    }
+    
+    .thumbnail h4 {
+        padding: 10px 15px 5px;
+        margin: 0;
+        color: #9c4d8b;
+    }
+    
+    .tag {
+        padding: 0 15px;
+        margin: 0;
+        color: #666;
+    }
+    
+    .text_column {
+        padding: 0 15px 15px;
+        margin: 0;
+        line-height: 1.5;
+        font-size: 14px;
+    }
+    
+    .home-button {
+        display: block;
+        width: 200px;
+        margin: 30px auto;
+        padding: 12px 25px;
+        background: linear-gradient(135deg, #9c4d8b, #c86b98);
+        color: white;
+        text-decoration: none;
+        text-align: center;
+        font-size: 1.1em;
+        font-weight: 500;
+        border-radius: 25px;
+        box-shadow: 0 4px 15px rgba(156, 77, 139, 0.3);
+        transition: all 0.3s ease;
+    }
+    
+    .home-button:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 6px 20px rgba(156, 77, 139, 0.4);
+        background: linear-gradient(135deg, #8a4279, #b55c87);
+    }
+    
+    .copyright {
+        text-align: center;
+        color: #666;
+        padding: 15px;
+        background: rgba(255, 255, 255, 0.8);
+        border-radius: 5px;
+        margin-top: 20px;
+        width: 100%;
+        max-width: 300px;
+    }
+</style>
+</head>
+<body>
+<!-- Main Container -->
+<div class="container"> 
+  <!-- Header -->
+  <header class="header">
+    <h4 class="logo">喻园食堂美食</h4>
+  </header>
+  
+  <!-- Gallery Section - 2行3列 -->
+  <div class="gallery">
+    <div class="thumbnail"> 
+      <img src="photo/yu1.JPG" alt="四季美炸酱面"/>
+      <h4>四季美炸酱面</h4>
+      <p class="tag">(◕‿◕✿)</p>
+      <p class="text_column"><strong>四季美的炸酱面 好吃 糊米酒 满满的淀粉感 有一点吃不惯</strong></p>
+    </div>
+    <div class="thumbnail"> 
+      <img src="photo/yu2.jpg" alt="牛肉加糖醋排骨"/>
+      <h4>牛肉加糖醋排骨</h4>
+      <p class="tag">(；一_一)</p>
+      <p class="text_column"><strong>最右边的窗口 牛肉加糖醋排骨 味道比较普通 但是真的好贵！！！</strong></p>
+    </div>
+    <div class="thumbnail"> 
+      <img src="photo/yu3.png" alt="四季美汤包"/>
+      <h4>四季美汤包</h4>
+      <p class="tag">(ﾉ◕ヮ◕)ﾉ*:･ﾟ✧</p>
+      <p class="text_column"><strong>四季美的蟹黄汤包太贵了 普通包子还是可以冲一下 好吃！</strong></p>
+    </div>
+    
+    <div class="thumbnail"> 
+      <img src="photo/yu4.jpg" alt="肥牛意面"/>
+      <h4>肥牛意面</h4>
+      <p class="tag">(⊙﹏⊙)</p>
+      <p class="text_column"><strong>喻园排队王 16r就可以吃到高贵的肥牛意面 但是似乎问题也是太油？？？</strong></p>
+    </div>
+    <div class="thumbnail"> 
+      <img src="photo/yu5.jpg" alt="三线米线"/>
+      <h4>三线米线</h4>
+      <p class="tag">(╯°□°）╯︵ ┻━┻</p>
+      <p class="text_column"><strong>喻园最阴间的食物 三线米线 难吃火腿+不知名丸子+香菇 超级难吃 太阴间了！！！</strong></p>
+    </div>
+    <div class="thumbnail"> 
+      <img src="photo/yu6.jpg" alt="喻园美食组合"/>
+      <h4>喻园美食组合</h4>
+      <p class="tag">(★ ω ★)</p>
+      <p class="text_column"><strong>来自喻园的超级组合 总的来说是一个好吃的食堂！</strong></p>
+    </div>
+  </div>
+  
+  <!-- 回到主页按钮 -->
+  <a href="index.html" class="home-button">返回主页</a>
+  
+  <!-- Copyrights Section -->
+  <div class="copyright">&copy; 2025 小雅小食堂 - 所有权利保留</div>
+</div>
+<!-- Main Container Ends -->
+</body>
+</html>
