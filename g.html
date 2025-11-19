@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>更多食堂美食</title>
+<style>
+    body {
+        padding: 20px;
+        background: url('photo/gback.png') no-repeat center center fixed;
+        background-size: cover;
+        font-family: Arial, sans-serif;
+        margin: 0;
+        min-height: 100vh;
+    }
+    
+    .container { 
+        max-width: 1000px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .header {
+        text-align: center;
+        padding: 20px 0;
+        width: 100%;
+    }
+    
+    .logo {
+        font-size: 2.5em;
+        color: #ffb347; /* 改为黄色 */
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        margin: 20px 0;
+    }
+    
+    /* 简介栏样式 */
+    .intro {
+        max-width: 800px;
+        margin: 10px auto 30px;
+        padding: 15px 20px;
+        background: rgba(255, 255, 255, 0.85);
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(255, 179, 71, 0.2);
+        text-align: center;
+        font-size: 1.1em;
+        line-height: 1.6;
+        color: #5a3921;
+        border-left: 5px solid #ffb347;
+    }
+    
+    .gallery {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        gap: 20px;
+        margin: 20px 0;
+        width: 100%;
+    }
+    
+    .thumbnail {
+        background: rgba(255, 255, 255, 0.9);
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 4px 8px rgba(255, 179, 71, 0.2);
+        transition: transform 0.3s;
+    }
+    
+    .thumbnail:hover {
+        transform: translateY(-5px);
+    }
+    
+    .thumbnail img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+    }
+    
+    .thumbnail h4 {
+        padding: 10px 15px 5px;
+        margin: 0;
+        color: #d4942e;
+    }
+    
+    .tag {
+        padding: 0 15px;
+        margin: 0;
+        color: #666;
+    }
+    
+    .text_column {
+        padding: 0 15px 15px;
+        margin: 0;
+        line-height: 1.5;
+        font-size: 14px;
+    }
+    
+    .home-button {
+        display: block;
+        width: 200px;
+        margin: 30px auto;
+        padding: 12px 25px;
+        background: linear-gradient(135deg, #ffb347, #ffcc33);
+        color: white;
+        text-decoration: none;
+        text-align: center;
+        font-size: 1.1em;
+        font-weight: 500;
+        border-radius: 25px;
+        box-shadow: 0 4px 15px rgba(255, 179, 71, 0.3);
+        transition: all 0.3s ease;
+    }
+    
+    .home-button:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 6px 20px rgba(255, 179, 71, 0.4);
+        background: linear-gradient(135deg, #e6a140, #e6b82e);
+    }
+    
+    .copyright {
+        text-align: center;
+        color: #666;
+        padding: 15px;
+        background: rgba(255, 255, 255, 0.8);
+        border-radius: 5px;
+        margin-top: 20px;
+        width: 100%;
+        max-width: 300px;
+    }
+</style>
+</head>
+<body>
+<!-- Main Container -->
+<div class="container"> 
+  <!-- Header -->
+  <header class="header">
+    <h4 class="logo">更多食堂美食</h4>
+  </header>
+  
+  <!-- 简介栏 -->
+  <div class="intro">
+    因为小雅除了工训没有东边的课，所以平时很少会在东边吃饭。不过学二真的是极品食堂。强推👍 韵苑也还不错 集锦园 全华科最好吃的食堂值得冲！！！(◕‿◕✿) 食堂持续探索中......
+  </div>
+  
+  <!-- Gallery Section - 2行3列 -->
+  <div class="gallery">
+    <div class="thumbnail"> 
+      <img src="photo/g1.JPG" alt="全华科独一份肥肠鸡"/>
+      <h4>全华科独一份肥肠鸡</h4>
+      <p class="tag">(★ ω ★)</p>
+      <p class="text_column"><strong>全华科独一份肥肠鸡 好吃 学二食堂yyds</strong></p>
+    </div>
+    <div class="thumbnail"> 
+      <img src="photo/g2.jpg" alt="学二蛋包饭"/>
+      <h4>学二蛋包饭</h4>
+      <p class="tag">(ﾉ◕ヮ◕)ﾉ*:･ﾟ✧</p>
+      <p class="text_column"><strong>还是学二的蛋包饭 料很足 好吃</strong></p>
+    </div>
+    <div class="thumbnail"> 
+      <img src="photo/g3.JPG" alt="韵苑干锅"/>
+      <h4>韵苑干锅</h4>
+      <p class="tag">(◕‿◕✿)</p>
+      <p class="text_column"><strong>韵苑的干锅 和蔬菜卷配合食用更佳 好吃</strong></p>
+    </div>
+    
+    <div class="thumbnail"> 
+      <img src="photo/g4.jpg" alt="韵苑三鲜面"/>
+      <h4>韵苑三鲜面</h4>
+      <p class="tag">(⊙﹏⊙)</p>
+      <p class="text_column"><strong>韵苑的阴间三鲜面 真的好阴间 面还不错 就是料头太诡异了</strong></p>
+    </div>
+    <div class="thumbnail"> 
+      <img src="photo/g5.jpg" alt="韵苑臭豆腐"/>
+      <h4>韵苑臭豆腐</h4>
+      <p class="tag">(；一_一)</p>
+      <p class="text_column"><strong>韵苑的阴间臭豆腐 人生中第一份不辣的臭豆腐</strong></p>
+    </div>
+    <div class="thumbnail"> 
+      <img src="photo/g6.jpg" alt="集锦园排骨豆丝"/>
+      <h4>集锦园排骨豆丝</h4>
+      <p class="tag">(｡♥‿♥｡)</p>
+      <p class="text_column"><strong>全华科最好吃的食堂 集锦园 排骨豆丝 超级超级好吃 非常推荐 锅贴也还不错 就是似乎只有韭菜没有肉？？？</strong></p>
+    </div>
+  </div>
+  
+  <!-- 回到主页按钮 -->
+  <a href="index.html" class="home-button">返回主页</a>
+  
+  <!-- Copyrights Section -->
+  <div class="copyright">&copy; 2025 小雅小食堂 - 所有权利保留</div>
+</div>
+<!-- Main Container Ends -->
+</body>
+</html>
