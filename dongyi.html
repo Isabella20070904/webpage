@@ -68,21 +68,24 @@
             transform: translateX(-50%);
         }
         
-        /* 移动端提示 */
-        .mobile-hint {
+        /* 移动端副标题 */
+        .mobile-subtitle {
             display: none;
             text-align: center;
-            font-size: 1em;
+            font-size: 1.4em;
             color: #5d4a8a;
-            margin-bottom: 15px;
+            margin-bottom: 40px;
+            font-weight: 300;
+            letter-spacing: 1px;
             background: rgba(255, 255, 255, 0.8);
-            padding: 10px 20px;
-            border-radius: 20px;
+            padding: 12px 30px;
+            border-radius: 30px;
+            display: none;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            backdrop-filter: blur(5px);
             position: relative;
             left: 50%;
             transform: translateX(-50%);
-            width: 80%;
-            max-width: 300px;
         }
         
         /* 图片容器 */
@@ -207,19 +210,20 @@
         
         /* 只在移动端应用的样式 */
         @media (max-width: 768px) {
-            .mobile-hint {
-                display: block;
+            .page-subtitle {
+                display: none;
+            }
+            
+            .mobile-subtitle {
+                display: inline-block;
+                font-size: 1.2em;
+                margin-bottom: 20px;
+                width: 90%;
             }
             
             .page-title {
                 font-size: 2.5em;
                 margin: 20px 0 10px;
-            }
-            
-            .page-subtitle {
-                font-size: 1.1em;
-                margin-bottom: 20px;
-                width: 90%;
             }
             
             .photo-container {
@@ -242,7 +246,7 @@
 <body>
     <h1 class="page-title">东一美食展示</h1>
     <p class="page-subtitle">鼠标悬停查看菜品介绍</p>
-    <div class="mobile-hint">点击图片查看菜品介绍</div>
+    <p class="mobile-subtitle">点击图片查看菜品介绍</p>
     
     <div class="photo-container">
         <div class="photo">
