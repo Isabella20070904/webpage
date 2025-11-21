@@ -13,6 +13,15 @@
             padding: 0;
             color: #333;
             font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif;
+            text-align: center;
+        }
+
+        /* 容器居中 */
+        .container {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         /* 【美化标题样式】 */
@@ -26,13 +35,11 @@
             background: rgba(255, 255, 255, 0.9);
             padding: 20px 40px;
             border-radius: 50px;
-            display: inline-block;
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
             border: 2px solid #81c784;
             backdrop-filter: blur(10px);
-            position: relative;
-            left: 50%;
-            transform: translateX(-50%);
+            width: auto;
+            display: inline-block;
         }
 
         /* 【美化副标题】 */
@@ -46,12 +53,10 @@
             background: rgba(255, 255, 255, 0.8);
             padding: 12px 30px;
             border-radius: 30px;
-            display: inline-block;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
             backdrop-filter: blur(5px);
-            position: relative;
-            left: 50%;
-            transform: translateX(-50%);
+            width: auto;
+            display: inline-block;
         }
 
         /* 移动端副标题 */
@@ -68,9 +73,8 @@
             border-radius: 30px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
             backdrop-filter: blur(5px);
-            position: relative;
-            left: 50%;
-            transform: translateX(-50%);
+            width: auto;
+            display: none;
         }
 
         /* 【去掉白色大框，直接放图片】 */
@@ -83,6 +87,7 @@
             padding: 20px;
             margin: 20px auto;
             max-width: 1400px;
+            width: 100%;
         }
 
         /* 设置照片样式 */
@@ -188,9 +193,7 @@
             padding: 15px;
             border-radius: 10px;
             display: inline-block;
-            position: relative;
-            left: 50%;
-            transform: translateX(-50%);
+            width: auto;
         }
         
         /* 只在移动端应用的样式 */
@@ -234,34 +237,36 @@
     </style>
 </head>
 <body>
-    <h1 class="page-title">百景园美食展示</h1>
-    <p class="page-subtitle">鼠标悬停查看菜品介绍</p>
-    <p class="mobile-subtitle">点击图片查看菜品介绍</p>
-    
-    <!-- 图片直接放在背景上，没有白色大框 -->
-    <div class="photo-container">
-        <div class="photo">
-            <img src="photo/baijingyuan1.JPG" width="300" height="400" alt="百景园菜品1">
-            <div class="caption">二楼好吃的自选菜。每一份分量都很小，都是非常精致。推荐！</div>
+    <div class="container">
+        <h1 class="page-title">百景园美食展示</h1>
+        <p class="page-subtitle">鼠标悬停查看菜品介绍</p>
+        <p class="mobile-subtitle">点击图片查看菜品介绍</p>
+        
+        <!-- 图片直接放在背景上，没有白色大框 -->
+        <div class="photo-container">
+            <div class="photo">
+                <img src="photo/baijingyuan1.JPG" width="300" height="400" alt="百景园菜品1">
+                <div class="caption">二楼好吃的自选菜。每一份分量都很小，都是非常精致。推荐！</div>
+            </div>
+            <div class="photo">
+                <img src="photo/baijingyuan2.JPG" width="300" height="400" alt="百景园菜品2">
+                <div class="caption">一楼的水饺和鸡丁。比较普通，无聊的时候可以尝试一下。</div>
+            </div>
+            <div class="photo">
+                <img src="photo/baijingyuan3.jpg.png" width="300" height="400" alt="百景园菜品3">
+                <div class="caption">烧腊饭和肠粉。中规中矩，和东一差不多。</div>
+            </div>
+            <div class="photo">
+                <img src="photo/baijingyuan4.jpg.png" width="300" height="400" alt="百景园菜品4">
+                <div class="caption">明星网红冬阴功米线，但我吃着觉得似乎一般？？？可以尝试一下。</div>
+            </div>
         </div>
-        <div class="photo">
-            <img src="photo/baijingyuan2.JPG" width="300" height="400" alt="百景园菜品2">
-            <div class="caption">一楼的水饺和鸡丁。比较普通，无聊的时候可以尝试一下。</div>
+        
+        <a href="index.html" class="home-button">返回主页</a>
+        
+        <div class="copyright">
+            <strong>&copy; 2025 小雅小食堂 - 所有权利保留</strong>
         </div>
-        <div class="photo">
-            <img src="photo/baijingyuan3.jpg.png" width="300" height="400" alt="百景园菜品3">
-            <div class="caption">烧腊饭。中规中矩，和东一差不多。</div>
-        </div>
-        <div class="photo">
-            <img src="photo/baijingyuan4.jpg.png" width="300" height="400" alt="百景园菜品4">
-            <div class="caption">明星网红冬阴功米线，但我吃着觉得似乎一般？？？可以尝试一下。</div>
-        </div>
-    </div>
-    
-    <a href="index.html" class="home-button">返回主页</a>
-    
-    <div class="copyright">
-        <strong>&copy; 2025 小雅小食堂 - 所有权利保留</strong>
     </div>
 
     <script>
