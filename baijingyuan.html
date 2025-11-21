@@ -2,6 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>百景园</title>
     <style>
         /* 背景设置 */
@@ -14,11 +15,11 @@
             font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif;
         }
 
-        /* 【美化标题样式】 */
+        /* 【美化标题样式】 - 保持原样 */
         .page-title {
             text-align: center;
             font-size: 3.2em;
-            color: #2e7d32;  /* 深绿色，与浅绿背景协调 */
+            color: #2e7d32;
             margin: 40px 0 10px 0;
             font-weight: 300;
             letter-spacing: 3px;
@@ -34,11 +35,11 @@
             transform: translateX(-50%);
         }
 
-        /* 【美化副标题】 */
+        /* 【美化副标题】 - 保持原样 */
         .page-subtitle {
             text-align: center;
             font-size: 1.4em;
-            color: #455a64;  /* 深灰蓝色 */
+            color: #455a64;
             margin-bottom: 40px;
             font-weight: 300;
             letter-spacing: 1px;
@@ -53,7 +54,24 @@
             transform: translateX(-50%);
         }
 
-        /* 【去掉白色大框，直接放图片】 */
+        /* 移动端提示 - 只在手机上显示 */
+        .mobile-hint {
+            display: none;
+            text-align: center;
+            font-size: 1em;
+            color: #666;
+            margin-bottom: 15px;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 10px 20px;
+            border-radius: 20px;
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            max-width: 300px;
+        }
+
+        /* 【照片容器】 - 保持原样 */
         .photo-container {
             display: flex;
             flex-wrap: wrap;
@@ -63,10 +81,9 @@
             padding: 20px;
             margin: 20px auto;
             max-width: 1400px;
-            /* 去掉背景色，让背景图片直接显示 */
         }
 
-        /* 设置照片样式 */
+        /* 设置照片样式 - 保持原样 */
         .photo {
             position: relative;
             width: 320px;
@@ -75,8 +92,9 @@
             border-radius: 15px;
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
             transition: all 0.4s ease;
-            background: rgba(255, 255, 255, 0.1);  /* 轻微白色背景让图片更突出 */
+            background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(5px);
+            cursor: pointer;
         }
 
         .photo img {
@@ -86,7 +104,7 @@
             transition: transform 0.4s ease;
         }
 
-        /* 设置文字说明样式 */
+        /* 设置文字说明样式 - 保持原样 */
         .photo .caption {
             position: absolute;
             bottom: 0;
@@ -101,9 +119,10 @@
             transition: opacity 0.4s ease;
             font-weight: 400;
             line-height: 1.5;
+            pointer-events: none;
         }
 
-        /* 设置鼠标滑动动画效果 */
+        /* 设置鼠标滑动动画效果 - 保持原样 */
         .photo:hover {
             transform: translateY(-8px);
             box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
@@ -117,7 +136,21 @@
             opacity: 1;
         }
         
-        /* 美化回到主页按钮 */
+        /* 移动端点击激活状态 */
+        .photo.active {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+        }
+        
+        .photo.active img {
+            transform: scale(1.05);
+        }
+        
+        .photo.active .caption {
+            opacity: 1;
+        }
+        
+        /* 美化回到主页按钮 - 保持原样 */
         .home-button {
             display: block;
             width: 220px;
@@ -143,7 +176,7 @@
             background: linear-gradient(135deg, #4caf50, #388e3c);
         }
         
-        /* 美化版权信息 */
+        /* 美化版权信息 - 保持原样 */
         .copyright {
             text-align: center;
             color: #666;
@@ -157,11 +190,48 @@
             left: 50%;
             transform: translateX(-50%);
         }
+        
+        /* 只在移动端应用的样式 */
+        @media (max-width: 768px) {
+            .mobile-hint {
+                display: block;
+            }
+            
+            .page-title {
+                font-size: 2.2em;
+                margin: 20px 0 10px 0;
+                padding: 15px 25px;
+                width: 85%;
+            }
+            
+            .page-subtitle {
+                font-size: 1.1em;
+                margin-bottom: 20px;
+                padding: 10px 20px;
+                width: 80%;
+            }
+            
+            .photo-container {
+                gap: 20px;
+                padding: 15px;
+            }
+            
+            .photo {
+                width: 90%;
+                max-width: 300px;
+                height: 350px;
+            }
+            
+            .copyright {
+                width: 85%;
+            }
+        }
     </style>
 </head>
 <body>
     <h1 class="page-title">百景园美食展示</h1>
     <p class="page-subtitle">鼠标悬停查看菜品介绍</p>
+    <div class="mobile-hint">点击图片查看菜品介绍</div>
     
     <!-- 图片直接放在背景上，没有白色大框 -->
     <div class="photo-container">
@@ -188,5 +258,46 @@
     <div class="copyright">
         <strong>&copy; 2025 小雅小食堂 - 所有权利保留</strong>
     </div>
+
+    <script>
+        // 移动端触摸事件处理
+        document.addEventListener('DOMContentLoaded', function() {
+            const photos = document.querySelectorAll('.photo');
+            
+            // 检测是否为触摸设备
+            const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints;
+            
+            if (isTouchDevice) {
+                // 为触摸设备添加点击事件
+                photos.forEach(photo => {
+                    photo.addEventListener('click', function(e) {
+                        // 阻止事件冒泡，避免立即触发document的点击事件
+                        e.stopPropagation();
+                        
+                        // 如果当前图片已经是激活状态，则关闭它
+                        if (this.classList.contains('active')) {
+                            this.classList.remove('active');
+                            return;
+                        }
+                        
+                        // 移除其他图片的active类
+                        photos.forEach(p => {
+                            p.classList.remove('active');
+                        });
+                        
+                        // 激活当前图片
+                        this.classList.add('active');
+                    });
+                });
+                
+                // 点击页面其他区域关闭所有图片说明
+                document.addEventListener('click', function() {
+                    photos.forEach(photo => {
+                        photo.classList.remove('active');
+                    });
+                });
+            }
+        });
+    </script>
 </body>
 </html>
